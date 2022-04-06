@@ -70,6 +70,7 @@ class Point: public Shape {
 
 
 class LineSegment: public Shape {
+    friend class KochCurve;
     private:
         Point a;
         Point b;
@@ -182,6 +183,34 @@ class SierpinskiTriangle: public Triangle {
          * @param maxDepth Maximum depth of the recursion
          */
         SierpinskiTriangle(float thickness, int color[3], Point a, Point b, Point c, int maxDepth):Triangle(thickness, color, a, b, c) {
+            this->maxDepth = maxDepth;
+        };
+
+        void draw(SimpleCanvas* canvas);
+};
+
+
+class KochCurve: public LineSegment {
+    private:
+        int maxDepth; // Maximum depth of recursion
+        /**
+         * A recursive helper method for drawing the Koch curve
+         * 
+         * @param canvas Reference to canvas on which to draw
+         * @param ab Current line segment we're processing
+         * @param depth depth of recursion
+         */
+        void drawRec(SimpleCanvas* canvas, LineSegment& ab, int depth);
+    
+    public:
+        /**
+         * Line segment constructor that accepts point objects
+         * @param thickness Thickness of pen drawing
+         * @param color Color to draw
+         * @param a The first point
+         * @param b The second point
+         */
+        KochCurve(float thickness, int color[3], Point a, Point b, int maxDepth):LineSegment(thickness, color, a, b) {
             this->maxDepth = maxDepth;
         };
 
