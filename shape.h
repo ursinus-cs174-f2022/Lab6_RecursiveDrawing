@@ -171,7 +171,7 @@ class SierpinskiTriangle: public Triangle {
          * @param tri Current triangle we're processing
          * @param depth depth of recursion
          */
-        void drawRec(SimpleCanvas* canvas, Triangle& tri, int depth);
+        static void drawRec(SimpleCanvas* canvas, SierpinskiTriangle& tri, int depth);
 
     public:
         /**
@@ -200,7 +200,7 @@ class KochCurve: public LineSegment {
          * @param ab Current line segment we're processing
          * @param depth depth of recursion
          */
-        void drawRec(SimpleCanvas* canvas, LineSegment& ab, int depth);
+        static void drawRec(SimpleCanvas* canvas, KochCurve& ab, int depth);
     
     public:
         /**

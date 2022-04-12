@@ -8,8 +8,10 @@
  * @param tri Current triangle we're processing
  * @param depth depth of recursion
  */
-void SierpinskiTriangle::drawRec(SimpleCanvas* canvas, Triangle& tri, int depth) {
-    tri.draw(canvas);
+void SierpinskiTriangle::drawRec(SimpleCanvas* canvas, SierpinskiTriangle& tri, int depth) {
+    // Cast this to a triangle to use the ordinary draw method
+    ((Triangle)tri).draw(canvas);
+
     // TODO: Fill this in.  Make recursive calls to draw
     // three smaller triangles
 }
@@ -29,8 +31,10 @@ void SierpinskiTriangle::draw(SimpleCanvas* canvas) {
  * @param ab Current line segment we're processing
  * @param depth depth of recursion
  */
-void KochCurve::drawRec(SimpleCanvas* canvas, LineSegment& ab, int depth) {
-    ab.draw(canvas);
+void KochCurve::drawRec(SimpleCanvas* canvas, KochCurve& ab, int depth) {
+    // Cast this to an ordinary line segment to use the LineSegment draw method
+    ((LineSegment)ab).draw(canvas);
+    
     // TODO: Fill this in.  Make recursive calls to draw
     // three smaller line segments
 }
