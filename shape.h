@@ -70,12 +70,10 @@ class Point: public Shape {
 
 
 class LineSegment: public Shape {
-    friend class KochCurve;
-    private:
+    public:
         Point a;
         Point b;
-    
-    public:
+
         /**
          * Line segment constructor that accepts point objects
          * @param thickness Thickness of pen drawing
@@ -139,11 +137,7 @@ class LineSegment: public Shape {
 
 
 class Triangle: public Shape {
-    // This makes it so we can access a, b, c, ab, ac, and bc from within
-    // the SierpinskiTriangle class
-    friend class SierpinskiTriangle;
     protected:
-        Point a, b, c;
         LineSegment ab, ac, bc;
 
     public:
@@ -154,6 +148,7 @@ class Triangle: public Shape {
          * @param b The second point
          * @param c The third point
          */
+        Point a, b, c;
         Triangle(float thickness, int color[3], Point a, Point b, Point c);
         
         void draw(SimpleCanvas* canvas);
