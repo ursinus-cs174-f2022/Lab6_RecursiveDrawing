@@ -137,9 +137,6 @@ class LineSegment: public Shape {
 
 
 class Triangle: public Shape {
-    protected:
-        LineSegment ab, ac, bc;
-
     public:
         /**
          * @param thickness Thickness of pen drawing
@@ -148,6 +145,7 @@ class Triangle: public Shape {
          * @param b The second point
          * @param c The third point
          */
+        LineSegment ab, ac, bc;
         Point a, b, c;
         Triangle(float thickness, int color[3], Point a, Point b, Point c);
         

@@ -12,7 +12,7 @@
 void drawSierpinskiRec(SimpleCanvas* canvas, SierpinskiTriangle* tri, int depth, int maxDepth) {
     // Cast this to a triangle to use the ordinary draw method
     ((Triangle*)tri)->draw(canvas);
-
+    
     // TODO: Fill this in.  Make recursive calls to draw
     // three smaller triangles
 }
