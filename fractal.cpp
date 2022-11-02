@@ -11,15 +11,26 @@
  */
 void drawSierpinskiRec(SimpleCanvas* canvas, SierpinskiTriangle* tri, int depth, int maxDepth) {
     // Cast this to a triangle to use the ordinary draw method
-    ((Triangle*)tri)->draw(canvas);
-    
-    // TODO: Fill this in.  Make recursive calls to draw
-    // three smaller triangles
+    if (maxDepth == 0) {
+        ((Triangle*)tri)->draw(canvas);
+    }
+    else {
+        // TODO: Fill this in.  Make recursive calls to draw
+        // three smaller triangles
+        Point d = tri->ab.getMidpoint();
+        Point f = tri->ac.getMidpoint();
+        Point e = tri->bc.getMidpoint();
+        SierpinskiTriangle tri1(tri->thickness, tri->color, tri->a, d, f, maxDepth-1);
+        tri1.draw(canvas);
+        SierpinskiTriangle tri2(tri->thickness, tri->color, d, tri->b, e, maxDepth-1);
+        tri2.draw(canvas);
+        SierpinskiTriangle tri3(tri->thickness, tri->color, f, e, tri->c, maxDepth-1);
+        tri3.draw(canvas);
+    }
 }
 
 
 void SierpinskiTriangle::draw(SimpleCanvas* canvas) {
-    canvas->clearRect(255, 255, 255);
     drawSierpinskiRec(canvas, this, 0, maxDepth);
 }
 

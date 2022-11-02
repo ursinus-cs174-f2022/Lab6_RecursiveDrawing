@@ -3,12 +3,10 @@
 
 #include "simplecanvas/simplecanvas.h"
 
-class Shape {
-    protected:
+class Shape {    
+    public:
         float thickness;
         int color[3];
-    
-    public:
         /**
          * Constructor for a shape
          * @param thickness Thickness of pen drawing
