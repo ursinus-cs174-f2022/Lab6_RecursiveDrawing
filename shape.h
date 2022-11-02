@@ -164,14 +164,6 @@ class Triangle: public Shape {
 class SierpinskiTriangle: public Triangle {
     private:
         int maxDepth; // Maximum depth of recursion
-        /**
-         * A recursive helper method for drawing the Sierpinski triangle
-         * 
-         * @param canvas Reference to canvas on which to draw
-         * @param tri Current triangle we're processing
-         * @param depth depth of recursion
-         */
-        static void drawRec(SimpleCanvas* canvas, SierpinskiTriangle& tri, int depth);
 
     public:
         /**
@@ -193,14 +185,6 @@ class SierpinskiTriangle: public Triangle {
 class KochCurve: public LineSegment {
     private:
         int maxDepth; // Maximum depth of recursion
-        /**
-         * A recursive helper method for drawing the Koch curve
-         * 
-         * @param canvas Reference to canvas on which to draw
-         * @param ab Current line segment we're processing
-         * @param depth depth of recursion
-         */
-        static void drawRec(SimpleCanvas* canvas, KochCurve& ab, int depth);
     
     public:
         /**
